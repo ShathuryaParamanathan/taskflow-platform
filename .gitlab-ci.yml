@@ -29,6 +29,5 @@ test:
   script:
     - cd app
     - npm ci
-    - node -e "const { Client } = require('pg'); (async () => { for (let i = 0; i < 30; i++) { const c = new Client({ host: process.env.DB_HOST, port: Number(process.env.DB_PORT), database: process.env.DB_NAME, user: process.env.DB_USER, password: process.env.DB_PASSWORD }); try { await c.connect(); await c.end(); console.log('PostgreSQL is ready'); return; } catch (e) { try { await c.end(); } catch {} await new Promise(r => setTimeout(r, 2000)); } } throw new Error('PostgreSQL did not become ready'); })().catch(e => { console.error(e); process.exit(1); });"
-    - node -e "const fs = require('fs'); const { Client } = require('pg'); const c = new Client({ host: process.env.DB_HOST, port: Number(process.env.DB_PORT), database: process.env.DB_NAME, user: process.env.DB_USER, password: process.env.DB_PASSWORD }); c.connect().then(async () => { await c.query(fs.readFileSync('migrations/001_create_tasks.sql', 'utf8')); console.log('Database migration completed'); await c.end(); }).catch(async e => { console.error(e); try { await c.end(); } catch {} process.exit(1); });"
+    - node ci-db-setup.cjs
     - npm test
