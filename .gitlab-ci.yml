@@ -1,0 +1,21 @@
+
+stages:
+  - lint
+  - test
+
+default:
+  image: node:24-alpine
+
+lint:
+  stage: lint
+  script:
+    - cd app
+    - npm ci
+    - node --check src/server.js
+
+test:
+  stage: test
+  script:
+    - cd app
+    - npm ci
+    - npm test
