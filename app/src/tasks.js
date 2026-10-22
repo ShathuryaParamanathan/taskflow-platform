@@ -11,6 +11,7 @@ router.get("/", async (req, res, next) => {
     next(error);
   }
 });
+
 router.post("/", async (req, res, next) => {
   try {
     const { title, description = "", status = "pending" } = req.body;
@@ -33,4 +34,36 @@ router.post("/", async (req, res, next) => {
     next(error);
   }
 });
+
+router.get("/:id", async (req, res, next) => {
+  try {
+    const id = req.params.id;
+
+    if (!/^[1-9]\d*$/.test(id)) {
+      return res.status(400).json({
+        error: "Invalid task ID",
+      });
+    }
+
+    const result = await pool.query(
+      `SELECT id, title, description, status, created_at, updated_at
+       FROM tasks
+       WHERE id = $1`,
+      [id]
+    );
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({
+        error: "Task not found",
+      });
+    }
+
+    res.status(200).json({
+      data: result.rows[0],
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;
