@@ -1,6 +1,7 @@
 stages:
   - lint
   - test
+  - terraform_validate
 
 default:
   image: node:24-alpine
@@ -31,3 +32,14 @@ test:
     - npm ci
     - node ci-db-setup.cjs
     - npm test
+
+terraform_validate:
+  stage: terraform_validate
+  image:
+    name: hashicorp/terraform:1.16.6
+    entrypoint: [""]
+  script:
+    - cd terraform
+    - terraform init -backend=false
+    - terraform validate
+    - terraform fmt -check -recursive

@@ -1,0 +1,14 @@
+variable "name" {
+  type = string
+}
+variable "vpc_id" {
+  type = string
+}
+variable "container_port" {
+  type    = number
+  default = 3000
+}
+variable "tags" {
+  type    = map(string)
+  default = {}
+}

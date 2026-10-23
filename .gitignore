@@ -9,3 +9,8 @@ dist/
 *.tfstate.*
 crash.log
 *.pem
+
+# Terraform variable files
+*.tfvars
+!terraform.tfvars.example
+!terraform/terraform.tfvars.example
