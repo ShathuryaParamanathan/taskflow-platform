@@ -229,7 +229,8 @@ resource "aws_ecs_task_definition" "api" {
       { name = "PORT", value = tostring(var.container_port) },
       { name = "DB_HOST", value = var.db_endpoint },
       { name = "DB_PORT", value = "5432" },
-      { name = "DB_NAME", value = var.db_name }
+      { name = "DB_NAME", value = var.db_name },
+      { name = "DB_SSL", value = "true" }
     ]
 
     secrets = [
