@@ -1,10 +1,5 @@
-resource "aws_ecr_repository" "this" {
-  name                 = "${var.name}-api"
-  image_tag_mutability = "MUTABLE"
-  image_scanning_configuration {
-    scan_on_push = true
-  }
-  tags = merge(var.tags, { Name = "${var.name}-api" })
+data "aws_ecr_repository" "this" {
+  name = "taskflow-api"
 }
 resource "aws_ecs_cluster" "this" {
   name = "${var.name}-cluster"
@@ -219,7 +214,7 @@ resource "aws_ecs_task_definition" "api" {
 
   container_definitions = jsonencode([{
     name      = "taskflow-api"
-    image     = "${aws_ecr_repository.this.repository_url}:${var.image_tag}"
+    image     = "${data.aws_ecr_repository.this.repository_url}:${var.image_tag}"
     essential = true
     cpu       = var.task_cpu
     memory    = var.task_memory
@@ -321,4 +316,6 @@ resource "aws_cloudwatch_log_group" "ec2_agent" {
   retention_in_days = 7
   tags              = var.tags
 }
+
+
 
