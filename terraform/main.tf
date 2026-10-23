@@ -43,4 +43,6 @@ module "compute" {
   db_username           = var.db_username
   db_password           = var.db_password
   tags                  = local.common_tags
+  desired_count         = var.desired_count
+  image_tag             = var.image_tag
 }

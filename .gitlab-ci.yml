@@ -1,7 +1,9 @@
 stages:
   - lint
   - test
+  - security
   - terraform_validate
+  - build
 
 default:
   image: node:24-alpine
@@ -33,6 +35,14 @@ test:
     - node ci-db-setup.cjs
     - npm test
 
+security_scan:
+  stage: security
+  image: node:24-alpine
+  script:
+    - cd app
+    - npm ci
+    - npm audit --omit=dev
+
 terraform_validate:
   stage: terraform_validate
   image:
@@ -43,3 +53,35 @@ terraform_validate:
     - terraform init -backend=false
     - terraform validate
     - terraform fmt -check -recursive
+
+build_push_ecr:
+  stage: build
+  image: docker:27.5.1-cli
+  services:
+    - name: docker:27.5.1-dind
+      alias: docker
+  variables:
+    DOCKER_HOST: tcp://docker:2376
+    DOCKER_TLS_CERTDIR: "/certs"
+    DOCKER_TLS_VERIFY: "1"
+    DOCKER_CERT_PATH: "$DOCKER_TLS_CERTDIR/client"
+    AWS_DEFAULT_REGION: "ap-south-1"
+    ECR_REGISTRY: "440744236554.dkr.ecr.ap-south-1.amazonaws.com"
+    ECR_REPOSITORY: "taskflow-api"
+    AWS_ROLE_ARN: "arn:aws:iam::440744236554:role/GitLabTaskFlowECRPushRole"
+  id_tokens:
+    AWS_ID_TOKEN:
+      aud: sts.amazonaws.com
+  script:
+    - apk add --no-cache aws-cli
+    - echo "$AWS_ID_TOKEN" > "$CI_PROJECT_DIR/aws_web_identity_token"
+    - chmod 600 "$CI_PROJECT_DIR/aws_web_identity_token"
+    - export AWS_WEB_IDENTITY_TOKEN_FILE="$CI_PROJECT_DIR/aws_web_identity_token"
+    - export AWS_ROLE_SESSION_NAME="gitlab-taskflow-${CI_PIPELINE_ID}"
+    - aws sts get-caller-identity
+    - aws ecr get-login-password --region "$AWS_DEFAULT_REGION" | docker login --username AWS --password-stdin "$ECR_REGISTRY"
+    - docker build -t "$ECR_REGISTRY/$ECR_REPOSITORY:$CI_COMMIT_SHORT_SHA" ./app
+    - docker push "$ECR_REGISTRY/$ECR_REPOSITORY:$CI_COMMIT_SHORT_SHA"
+    - rm -f "$CI_PROJECT_DIR/aws_web_identity_token"
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'

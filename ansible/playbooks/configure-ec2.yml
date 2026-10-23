@@ -1,0 +1,10 @@
+﻿---
+- name: Configure TaskFlow ECS EC2 instances
+  hosts: aws_ec2
+  become: true
+  gather_facts: true
+  roles:
+    - docker
+    - cloudwatch
+    - ecs
+    - hardening

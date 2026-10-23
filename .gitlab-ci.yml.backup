@@ -1,0 +1,52 @@
+stages:
+  - lint
+  - test
+  - security
+  - terraform_validate
+default:
+  image: node:24-alpine
+
+lint:
+  stage: lint
+  script:
+    - cd app
+    - npm ci
+    - node --check src/server.js
+
+test:
+  stage: test
+  services:
+    - name: postgres:17-alpine
+      alias: postgres
+  variables:
+    POSTGRES_DB: taskflow
+    POSTGRES_USER: taskflow_user
+    POSTGRES_PASSWORD: ci_taskflow_password
+    DB_HOST: postgres
+    DB_PORT: "5432"
+    DB_NAME: taskflow
+    DB_USER: taskflow_user
+    DB_PASSWORD: ci_taskflow_password
+  script:
+    - cd app
+    - npm ci
+    - node ci-db-setup.cjs
+    - npm test
+
+terraform_validate:
+  stage: terraform_validate
+  image:
+    name: hashicorp/terraform:1.16.6
+    entrypoint: [""]
+  script:
+    - cd terraform
+    - terraform init -backend=false
+    - terraform validate
+    - terraform fmt -check -recursive
+security_scan:
+  stage: security
+  image: node:24-alpine
+  script:
+    - cd app
+    - npm ci
+    - npm audit --omit=dev

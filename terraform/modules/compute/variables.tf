@@ -26,7 +26,7 @@ variable "container_port" {
 }
 variable "instance_type" {
   type    = string
-  default = "t3.micro"
+  default = "t3.small"
 }
 variable "image_tag" {
   description = "TaskFlow API Docker image tag"
@@ -58,4 +58,10 @@ variable "task_memory" {
   description = "ECS task memory in MiB"
   type        = number
   default     = 512
+}
+
+variable "desired_count" {
+  description = "Number of ECS tasks to run"
+  type        = number
+  default     = 0
 }

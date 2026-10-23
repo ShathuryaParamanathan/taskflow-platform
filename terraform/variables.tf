@@ -35,3 +35,15 @@ variable "task_memory" {
   type        = number
   default     = 512
 }
+
+variable "desired_count" {
+  description = "Number of ECS tasks to run during deployment"
+  type        = number
+  default     = 0
+}
+
+variable "image_tag" {
+  description = "Docker image tag for the ECS deployment (Git commit SHA)"
+  type        = string
+  default     = "latest"
+}

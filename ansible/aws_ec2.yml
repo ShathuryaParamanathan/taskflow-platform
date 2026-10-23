@@ -1,0 +1,14 @@
+plugin: amazon.aws.aws_ec2
+regions:
+  - ap-south-1
+filters:
+  instance-state-name: running
+  "tag:Project": taskflow
+  "tag:Environment": dev
+keyed_groups:
+  - key: ec2_tags.Environment
+    prefix: env
+  - key: ec2_tags.Project
+    prefix: project
+hostnames:
+  - instance-id

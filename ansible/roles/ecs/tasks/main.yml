@@ -1,0 +1,12 @@
+﻿---
+- name: Ensure ECS agent is configured for TaskFlow
+  ansible.builtin.lineinfile:
+    path: /etc/ecs/ecs.config
+    regexp: "^ECS_CLUSTER="
+    line: "ECS_CLUSTER=taskflow-cluster"
+    create: true
+- name: Ensure ECS agent service is enabled and running
+  ansible.builtin.service:
+    name: ecs
+    enabled: true
+    state: started

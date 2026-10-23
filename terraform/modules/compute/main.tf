@@ -133,9 +133,9 @@ EOF
 }
 resource "aws_autoscaling_group" "ecs" {
   name                = "${var.name}-ecs-asg"
-  min_size            = 1
+  min_size            = 0
   max_size            = 2
-  desired_capacity    = 1
+  desired_capacity    = 0
   vpc_zone_identifier = var.private_subnet_ids
   launch_template {
     id      = aws_launch_template.ecs.id
@@ -263,7 +263,7 @@ resource "aws_ecs_service" "api" {
   name            = "${var.name}-api"
   cluster         = aws_ecs_cluster.this.id
   task_definition = aws_ecs_task_definition.api.arn
-  desired_count   = 1
+  desired_count   = var.desired_count
 
   capacity_provider_strategy {
     capacity_provider = aws_ecs_capacity_provider.this.name

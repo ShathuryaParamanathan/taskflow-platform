@@ -1,0 +1,10 @@
+﻿---
+- name: Ensure CloudWatch agent is installed
+  ansible.builtin.dnf:
+    name: amazon-cloudwatch-agent
+    state: present
+- name: Ensure CloudWatch agent service is enabled and running
+  ansible.builtin.service:
+    name: amazon-cloudwatch-agent
+    enabled: true
+    state: started
