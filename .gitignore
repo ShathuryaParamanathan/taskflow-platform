@@ -14,3 +14,7 @@ crash.log
 *.tfvars
 !terraform.tfvars.example
 !terraform/terraform.tfvars.example
+
+overrides.json
+terraform/tfplan
+terraform/modules/compute/main.tf.bak
