@@ -1,10 +1,12 @@
-openapi: 3.0.3
+﻿openapi: 3.0.3
 info:
   title: TaskFlow API
   version: 1.0.0
   description: REST API for creating, retrieving, updating, and deleting tasks.
 
 servers:
+  - url: http://taskflow-dev-alb-878046829.ap-south-1.elb.amazonaws.com
+    description: AWS deployed server
   - url: http://localhost:3000
     description: Local development server
 
@@ -311,3 +313,4 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/Error"
+
