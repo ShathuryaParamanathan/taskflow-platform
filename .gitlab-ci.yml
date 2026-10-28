@@ -85,3 +85,16 @@ build_push_ecr:
     - rm -f "$CI_PROJECT_DIR/aws_web_identity_token"
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
+
+deploy_ecs:
+  stage: deploy
+  image: amazon/aws-cli:latest
+  needs:
+    - build_push_ecr
+  script:
+    # 1. Authenticate to AWS using GitLab OIDC
+    # 2. Register a new task definition with the new image
+    # 3. Update the existing ECS service
+    # 4. Wait for the service to become stable
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
