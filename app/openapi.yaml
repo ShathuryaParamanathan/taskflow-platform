@@ -7,6 +7,10 @@ info:
 servers:
   - url: /
     description: Current server (local or AWS)
+  - url: http://taskflow-dev-alb-878046829.ap-south-1.elb.amazonaws.com
+    description: AWS ALB server for TaskFlow API
+  - url: http://localhost:3000
+    description: Local development server
 
 tags:
   - name: Health
