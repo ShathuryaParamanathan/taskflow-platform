@@ -90,7 +90,84 @@ build_push_ecr:
 deploy_ecs:
   stage: deploy
   image: alpine:3.21
+
+  needs:
+    - job: build_push_ecr
+
+  variables:
+    AWS_DEFAULT_REGION: "ap-south-1"
+    AWS_ROLE_ARN: "arn:aws:iam::440744236554:role/GitLabTaskFlowECRPushRole"
+    ECS_CLUSTER: "taskflow-dev-cluster"
+    ECS_SERVICE: "taskflow-dev-api"
+    TASK_DEFINITION_FAMILY: "taskflow-dev-api"
+    CONTAINER_NAME: "taskflow-api"
+    ECR_REGISTRY: "440744236554.dkr.ecr.ap-south-1.amazonaws.com"
+    ECR_REPOSITORY: "taskflow-api"
+
+  id_tokens:
+    AWS_ID_TOKEN:
+      aud: sts.amazonaws.com
+
   script:
-    - echo "ECS deployment job configuration is valid."
+    # Install tools needed for AWS API calls and JSON editing
+    - apk add --no-cache aws-cli jq
+
+    # Configure GitLab OIDC authentication
+    - echo "$AWS_ID_TOKEN" > "$CI_PROJECT_DIR/aws_web_identity_token"
+    - chmod 600 "$CI_PROJECT_DIR/aws_web_identity_token"
+    - export AWS_WEB_IDENTITY_TOKEN_FILE="$CI_PROJECT_DIR/aws_web_identity_token"
+    - export AWS_ROLE_SESSION_NAME="gitlab-taskflow-deploy-${CI_PIPELINE_ID}"
+
+    # Verify the AWS identity used by this job
+    - aws sts get-caller-identity
+
+    # Build the image reference produced by the preceding pipeline job
+    - export NEW_IMAGE="${ECR_REGISTRY}/${ECR_REPOSITORY}:${CI_COMMIT_SHORT_SHA}"
+    - echo "Deploying image: $NEW_IMAGE"
+
+    # Read the existing task definition without changing AWS resources
+    - aws ecs describe-task-definition --task-definition "$TASK_DEFINITION_FAMILY" --query taskDefinition --output json > current-task-definition.json
+
+    # Replace only the TaskFlow container image and remove AWS-generated fields
+    - |
+      jq --arg image "$NEW_IMAGE" --arg container "$CONTAINER_NAME" '
+        if ([.containerDefinitions[] | select(.name == $container)] | length) != 1
+        then error("Expected exactly one matching container")
+        else
+          del(
+            .taskDefinitionArn,
+            .revision,
+            .status,
+            .requiresAttributes,
+            .compatibilities,
+            .registeredAt,
+            .registeredBy,
+            .deregisteredAt
+          )
+          | .containerDefinitions |= map(
+              if .name == $container
+              then .image = $image
+              else .
+              end
+            )
+        end
+      ' current-task-definition.json > new-task-definition.json
+
+    # Register a new revision while preserving the existing configuration
+    - aws ecs register-task-definition --cli-input-json file://new-task-definition.json --query taskDefinition.taskDefinitionArn --output text > new-task-definition-arn.txt
+    - export NEW_TASK_DEFINITION_ARN="$(cat new-task-definition-arn.txt)"
+    - echo "Registered task definition: $NEW_TASK_DEFINITION_ARN"
+
+    # Update the existing ECS service to use that revision
+    - aws ecs update-service --cluster "$ECS_CLUSTER" --service "$ECS_SERVICE" --task-definition "$NEW_TASK_DEFINITION_ARN"
+
+    # Wait until ECS finishes deploying and the service becomes stable
+    - aws ecs wait services-stable --cluster "$ECS_CLUSTER" --services "$ECS_SERVICE"
+
+    - echo "TaskFlow deployment completed successfully."
+
+    # Clean up the temporary OIDC token
+    - rm -f "$CI_PROJECT_DIR/aws_web_identity_token"
+
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'

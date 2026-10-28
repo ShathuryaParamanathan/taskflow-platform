@@ -7,8 +7,6 @@ info:
 servers:
   - url: /
     description: Current server (local or AWS)
-  - url: http://localhost:3000
-    description: Local development server
 
 tags:
   - name: Health
