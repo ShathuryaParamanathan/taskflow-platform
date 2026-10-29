@@ -253,7 +253,12 @@ resource "aws_ecs_task_definition" "api" {
         "awslogs-stream-prefix" = "taskflow"
       }
     }
+
+
   }])
+  lifecycle {
+    ignore_changes = [container_definitions]
+  }
 }
 
 resource "aws_ecs_service" "api" {
@@ -261,6 +266,9 @@ resource "aws_ecs_service" "api" {
   cluster         = aws_ecs_cluster.this.id
   task_definition = aws_ecs_task_definition.api.arn
   desired_count   = var.desired_count
+  lifecycle {
+    ignore_changes = [task_definition]
+  }
 
   capacity_provider_strategy {
     capacity_provider = aws_ecs_capacity_provider.this.name
