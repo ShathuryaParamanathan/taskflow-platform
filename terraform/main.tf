@@ -45,4 +45,5 @@ module "compute" {
   tags                  = local.common_tags
   desired_count         = var.desired_count
   image_tag             = var.image_tag
+  ecs_ami_id            = var.ecs_ami_id
 }

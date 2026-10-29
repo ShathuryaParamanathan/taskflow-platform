@@ -75,12 +75,10 @@ resource "aws_lb_listener" "http" {
     target_group_arn = aws_lb_target_group.api.arn
   }
 }
-data "aws_ssm_parameter" "ecs_ami" {
-  name = "/aws/service/ecs/optimized-ami/amazon-linux-2023/recommended/image_id"
-}
+
 resource "aws_launch_template" "ecs" {
   name_prefix   = "${var.name}-ecs-"
-  image_id      = data.aws_ssm_parameter.ecs_ami.value
+  image_id      = var.ecs_ami_id
   instance_type = var.instance_type
   iam_instance_profile {
     name = aws_iam_instance_profile.ecs.name
@@ -132,6 +130,9 @@ resource "aws_autoscaling_group" "ecs" {
   max_size            = 2
   desired_capacity    = 0
   vpc_zone_identifier = var.private_subnet_ids
+  lifecycle {
+    ignore_changes = [desired_capacity]
+  }
   launch_template {
     id      = aws_launch_template.ecs.id
     version = "$Latest"

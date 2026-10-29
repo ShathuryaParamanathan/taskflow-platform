@@ -65,3 +65,7 @@ variable "desired_count" {
   type        = number
   default     = 0
 }
+variable "ecs_ami_id" {
+  description = "Pinned ECS-optimized AMI for TaskFlow EC2 instances"
+  type        = string
+}

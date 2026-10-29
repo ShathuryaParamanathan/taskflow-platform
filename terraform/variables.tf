@@ -39,11 +39,17 @@ variable "task_memory" {
 variable "desired_count" {
   description = "Number of ECS tasks to run during deployment"
   type        = number
-  default     = 0
+  default     = 1
 }
 
 variable "image_tag" {
   description = "Docker image tag for the ECS deployment (Git commit SHA)"
   type        = string
-  default     = "latest"
+  default     = "f839a70a"
+}
+
+variable "ecs_ami_id" {
+  description = "Pinned ECS-optimized AMI for the TaskFlow EC2 instances"
+  type        = string
+  default     = "ami-08e0d7fb58f08ac36"
 }
