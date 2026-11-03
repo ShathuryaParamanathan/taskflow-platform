@@ -1,0 +1,7 @@
+{
+    "Status": "ACTIVE",
+    "Desired": 1,
+    "Running": 1,
+    "Pending": 0,
+    "DeploymentCount": 1
+}

@@ -1,0 +1,42 @@
+﻿[
+    {
+        "Name": "taskflow-dev-ecs-cpu-vertical-scaling",
+        "State": "OK",
+        "Metric": "CPUUtilization",
+        "Threshold": 70.0,
+        "Namespace": "AWS/ECS",
+        "Dimensions": [
+            {
+                "Name": "ClusterName",
+                "Value": "taskflow-dev-cluster"
+            },
+            {
+                "Name": "ServiceName",
+                "Value": "taskflow-dev-api"
+            }
+        ],
+        "Period": 300,
+        "EvaluationPeriods": 2,
+        "AlarmActions": []
+    },
+    {
+        "Name": "taskflow-dev-ecs-memory-vertical-scaling",
+        "State": "OK",
+        "Metric": "MemoryUtilization",
+        "Threshold": 70.0,
+        "Namespace": "AWS/ECS",
+        "Dimensions": [
+            {
+                "Name": "ClusterName",
+                "Value": "taskflow-dev-cluster"
+            },
+            {
+                "Name": "ServiceName",
+                "Value": "taskflow-dev-api"
+            }
+        ],
+        "Period": 300,
+        "EvaluationPeriods": 2,
+        "AlarmActions": []
+    }
+]

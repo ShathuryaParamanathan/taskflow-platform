@@ -1,0 +1,202 @@
+[
+    {
+        "Timestamp": 1793291143002,
+        "Message": "level=info time=2026-10-29T16:25:38Z msg=\"Successfully published instance status message to TCS with request ID: e4ffefe4-e354-441c-b60d-9e21aeeb40bc\""
+    },
+    {
+        "Timestamp": 1793291163004,
+        "Message": "level=info time=2026-10-29T16:25:58Z msg=\"Successfully published instance status message to TCS with request ID: 17b1cd13-404c-40c4-b6ba-3594c15d08a0\""
+    },
+    {
+        "Timestamp": 1793291203002,
+        "Message": "level=info time=2026-10-29T16:26:38Z msg=\"Successfully published instance status message to TCS with request ID: 671b0c92-83a6-413d-9ea5-4d3685a12333\""
+    },
+    {
+        "Timestamp": 1793291223003,
+        "Message": "level=info time=2026-10-29T16:26:58Z msg=\"Successfully published instance status message to TCS with request ID: 4ca836b8-2d5a-4930-a24b-3b7f8979d7dc\""
+    },
+    {
+        "Timestamp": 1793291243002,
+        "Message": "level=info time=2026-10-29T16:27:18Z msg=\"Successfully published instance status message to TCS with request ID: e50ca2ca-77fb-443e-9ca1-0840496a13d5\""
+    },
+    {
+        "Timestamp": 1793291263003,
+        "Message": "level=info time=2026-10-29T16:27:38Z msg=\"Successfully published instance status message to TCS with request ID: 0d3c2513-bd69-4fe1-9205-bfbb0f8a25fc\""
+    },
+    {
+        "Timestamp": 1793291303003,
+        "Message": "level=info time=2026-10-29T16:28:18Z msg=\"Successfully published instance status message to TCS with request ID: 4d3d710a-e500-4999-957e-5c0996578628\""
+    },
+    {
+        "Timestamp": 1793291323003,
+        "Message": "level=info time=2026-10-29T16:28:38Z msg=\"Successfully published instance status message to TCS with request ID: 7a10790e-c12b-4ed9-8238-dee130533f6a\""
+    },
+    {
+        "Timestamp": 1793291343003,
+        "Message": "level=info time=2026-10-29T16:28:58Z msg=\"Successfully published instance status message to TCS with request ID: da372d49-3497-44df-881a-1117c2ee258e\""
+    },
+    {
+        "Timestamp": 1793291363003,
+        "Message": "level=info time=2026-10-29T16:29:18Z msg=\"Successfully published instance status message to TCS with request ID: 7b010d30-6fc1-49a2-bbbd-055759e6ed60\""
+    },
+    {
+        "Timestamp": 1793291403003,
+        "Message": "level=info time=2026-10-29T16:29:58Z msg=\"Successfully published instance status message to TCS with request ID: 52401c14-d287-47ba-8c18-5581e015040c\""
+    },
+    {
+        "Timestamp": 1793291423003,
+        "Message": "level=info time=2026-10-29T16:30:18Z msg=\"Successfully published instance status message to TCS with request ID: 1a22f54a-a5e1-4078-9c6a-6cb006b54aba\""
+    },
+    {
+        "Timestamp": 1793291443003,
+        "Message": "level=info time=2026-10-29T16:30:38Z msg=\"Successfully published instance status message to TCS with request ID: 022b065c-fbcf-46de-8a62-20f157a545c5\""
+    },
+    {
+        "Timestamp": 1793291463003,
+        "Message": "level=info time=2026-10-29T16:30:58Z msg=\"Successfully published instance status message to TCS with request ID: 11d5d447-da0a-4e23-b3a6-d9b37b1464df\""
+    },
+    {
+        "Timestamp": 1793291503003,
+        "Message": "level=info time=2026-10-29T16:31:38Z msg=\"Successfully published instance status message to TCS with request ID: 5f8c4443-46e4-448e-81cb-301becd608d6\""
+    },
+    {
+        "Timestamp": 1793291523002,
+        "Message": "level=info time=2026-10-29T16:31:58Z msg=\"Successfully published instance status message to TCS with request ID: 76052467-bc32-42c9-85c8-2dc0f432bf41\""
+    },
+    {
+        "Timestamp": 1793291543002,
+        "Message": "level=info time=2026-10-29T16:32:18Z msg=\"Successfully published instance status message to TCS with request ID: b3020f84-64bd-4b75-bcb9-923fe03fc5b5\""
+    },
+    {
+        "Timestamp": 1793291563003,
+        "Message": "level=info time=2026-10-29T16:32:38Z msg=\"Successfully published instance status message to TCS with request ID: 113fabf4-2363-452d-b990-cbb944be2e88\""
+    },
+    {
+        "Timestamp": 1793291603002,
+        "Message": "level=info time=2026-10-29T16:33:18Z msg=\"Successfully published instance status message to TCS with request ID: 95e22b07-6897-455e-8015-48139f349328\""
+    },
+    {
+        "Timestamp": 1793291623003,
+        "Message": "level=info time=2026-10-29T16:33:38Z msg=\"Successfully published instance status message to TCS with request ID: 241b43dd-9450-41c3-9623-d867aae9bfd0\""
+    },
+    {
+        "Timestamp": 1793291643003,
+        "Message": "level=info time=2026-10-29T16:33:58Z msg=\"Successfully published instance status message to TCS with request ID: 003929f3-bb21-4b41-96a3-d123e056e436\""
+    },
+    {
+        "Timestamp": 1793291663003,
+        "Message": "level=info time=2026-10-29T16:34:18Z msg=\"Successfully published instance status message to TCS with request ID: aaba6717-9f30-4cbd-814a-7ebc248d70c9\""
+    },
+    {
+        "Timestamp": 1793291703002,
+        "Message": "level=info time=2026-10-29T16:34:58Z msg=\"Successfully published instance status message to TCS with request ID: 18ca0897-ce62-44e3-b1c5-ece5ce5f3a5d\""
+    },
+    {
+        "Timestamp": 1793291723003,
+        "Message": "level=info time=2026-10-29T16:35:18Z msg=\"Successfully published instance status message to TCS with request ID: 80c72641-b682-4e64-8a7d-f6e6e422d565\""
+    },
+    {
+        "Timestamp": 1793291743002,
+        "Message": "level=info time=2026-10-29T16:35:38Z msg=\"Successfully published instance status message to TCS with request ID: d94b98b1-6542-4c71-aab9-c882c6da97d6\""
+    },
+    {
+        "Timestamp": 1793291763003,
+        "Message": "level=info time=2026-10-29T16:35:58Z msg=\"Successfully published instance status message to TCS with request ID: 547043f7-9f0e-4fb2-9a69-c5308345184f\""
+    },
+    {
+        "Timestamp": 1793291775948,
+        "Message": "level=info time=2026-10-29T16:36:15Z msg=\"TCS Websocket connection closed for a valid reason\""
+    },
+    {
+        "Timestamp": 1793291775948,
+        "Message": "level=info time=2026-10-29T16:36:15Z msg=\"Using cached DiscoverPollEndpoint\" endpoint=\"https://ecs-a-1.ap-south-1.amazonaws.com/\" telemetryEndpoint=\"https://ecs-t-1.ap-south-1.amazonaws.com/\" serviceConnectEndpoint=\"https://ecs-sc.ap-south-1.api.aws\" systemLogsEndpoint=\"\" containerInstanceARN=\"arn:aws:ecs:ap-south-1:440744236554:container-instance/taskflow-dev-cluster/549610210fbf414cb09c3e37ebd6ad01\""
+    },
+    {
+        "Timestamp": 1793291775948,
+        "Message": "level=info time=2026-10-29T16:36:15Z msg=\"Establishing a Websocket connection\" url=\"https://ecs-t-1.ap-south-1.amazonaws.com/ws?agentHash=fef29b5c&agentVersion=1.108.0&cluster=taskflow-dev-cluster&containerInstance=arn%3Aaws%3Aecs%3Aap-south-1%3A440744236554%3Acontainer-instance%2Ftaskflow-dev-cluster%2F549610210fbf414cb09c3e37ebd6ad01&dockerVersion=25.0.16\""
+    },
+    {
+        "Timestamp": 1793291775948,
+        "Message": "level=info time=2026-10-29T16:36:15Z msg=\"Websocket connection established.\" ExpectedDisconnectTime=\"2026-10-29 17:06:15\" URL=\"https://ecs-t-1.ap-south-1.amazonaws.com/ws?agentHash=fef29b5c&agentVersion=1.108.0&cluster=taskflow-dev-cluster&containerInstance=arn%3Aaws%3Aecs%3Aap-south-1%3A440744236554%3Acontainer-instance%2Ftaskflow-dev-cluster%2F549610210fbf414cb09c3e37ebd6ad01&dockerVersion=25.0.16\" ConnectTime=\"2026-10-29 16:36:15\" maxConnectionDuration=30m23.322193088s"
+    },
+    {
+        "Timestamp": 1793291780003,
+        "Message": "level=info time=2026-10-29T16:36:15Z msg=\"Connected to TCS endpoint\""
+    },
+    {
+        "Timestamp": 1793291801003,
+        "Message": "level=info time=2026-10-29T16:36:35Z msg=\"Successfully published instance status message to TCS with request ID: fa4c962c-90cd-4edf-944c-038302aa7674\""
+    },
+    {
+        "Timestamp": 1793291821002,
+        "Message": "level=info time=2026-10-29T16:36:55Z msg=\"Successfully published instance status message to TCS with request ID: f6666515-35ca-49a9-8907-53da8139caa3\""
+    },
+    {
+        "Timestamp": 1793291841002,
+        "Message": "level=info time=2026-10-29T16:37:15Z msg=\"Successfully published instance status message to TCS with request ID: e73f9628-9505-410d-851f-2c22f41462ed\""
+    },
+    {
+        "Timestamp": 1793291881003,
+        "Message": "level=info time=2026-10-29T16:37:55Z msg=\"Successfully published instance status message to TCS with request ID: e186949f-faaa-4966-a8f7-4e3b09e140c5\""
+    },
+    {
+        "Timestamp": 1793291901003,
+        "Message": "level=info time=2026-10-29T16:38:15Z msg=\"Successfully published instance status message to TCS with request ID: 143a6a0a-4ee5-417f-844f-73a7980007d8\""
+    },
+    {
+        "Timestamp": 1793291921002,
+        "Message": "level=info time=2026-10-29T16:38:35Z msg=\"Successfully published instance status message to TCS with request ID: 3056b081-1e45-4b20-a448-4e73fe587a58\""
+    },
+    {
+        "Timestamp": 1793291940023,
+        "Message": "level=info time=2026-10-29T16:38:55Z msg=\"Successfully published instance status message to TCS with request ID: 053276dc-032b-4774-8a61-f322645f6798\""
+    },
+    {
+        "Timestamp": 1793291981002,
+        "Message": "level=info time=2026-10-29T16:39:35Z msg=\"Successfully published instance status message to TCS with request ID: 8c1800f3-7d93-4126-9501-6beea1e504e8\""
+    },
+    {
+        "Timestamp": 1793292001003,
+        "Message": "level=info time=2026-10-29T16:39:55Z msg=\"Successfully published instance status message to TCS with request ID: c8dd4338-4feb-4018-a0ae-ed10d2d68471\""
+    },
+    {
+        "Timestamp": 1793292020003,
+        "Message": "level=info time=2026-10-29T16:40:15Z msg=\"Successfully published instance status message to TCS with request ID: aaf2ccf5-9543-4910-84d8-fa19de9161c1\""
+    },
+    {
+        "Timestamp": 1793292041003,
+        "Message": "level=info time=2026-10-29T16:40:35Z msg=\"Successfully published instance status message to TCS with request ID: a933179b-1697-4436-9690-7688aa177905\""
+    },
+    {
+        "Timestamp": 1793292063106,
+        "Message": "level=info time=2026-10-29T16:41:02Z msg=\"Current ACS session is done and a new one might be created.\" containerInstanceARN=\"arn:aws:ecs:ap-south-1:440744236554:container-instance/taskflow-dev-cluster/549610210fbf414cb09c3e37ebd6ad01\""
+    },
+    {
+        "Timestamp": 1793292063106,
+        "Message": "level=info time=2026-10-29T16:41:02Z msg=\"ACS WebSocket connection closed for a valid reason\" containerInstanceARN=\"arn:aws:ecs:ap-south-1:440744236554:container-instance/taskflow-dev-cluster/549610210fbf414cb09c3e37ebd6ad01\""
+    },
+    {
+        "Timestamp": 1793292063106,
+        "Message": "level=info time=2026-10-29T16:41:02Z msg=\"Reconnecting to ACS immediately without waiting\" containerInstanceARN=\"arn:aws:ecs:ap-south-1:440744236554:container-instance/taskflow-dev-cluster/549610210fbf414cb09c3e37ebd6ad01\""
+    },
+    {
+        "Timestamp": 1793292063106,
+        "Message": "level=info time=2026-10-29T16:41:02Z msg=\"Using cached DiscoverPollEndpoint\" serviceConnectEndpoint=\"https://ecs-sc.ap-south-1.api.aws\" systemLogsEndpoint=\"\" containerInstanceARN=\"arn:aws:ecs:ap-south-1:440744236554:container-instance/taskflow-dev-cluster/549610210fbf414cb09c3e37ebd6ad01\" endpoint=\"https://ecs-a-1.ap-south-1.amazonaws.com/\" telemetryEndpoint=\"https://ecs-t-1.ap-south-1.amazonaws.com/\""
+    },
+    {
+        "Timestamp": 1793292063106,
+        "Message": "level=info time=2026-10-29T16:41:02Z msg=\"Establishing a Websocket connection\" url=\"https://ecs-a-1.ap-south-1.amazonaws.com/ws?agentHash=fef29b5c&agentVersion=1.108.0&clusterArn=taskflow-dev-cluster&containerInstanceArn=arn%3Aaws%3Aecs%3Aap-south-1%3A440744236554%3Acontainer-instance%2Ftaskflow-dev-cluster%2F549610210fbf414cb09c3e37ebd6ad01&dockerVersion=DockerVersion%3A+25.0.16&protocolVersion=2&sendCredentials=false&seqNum=1\""
+    },
+    {
+        "Timestamp": 1793292063106,
+        "Message": "level=info time=2026-10-29T16:41:02Z msg=\"Websocket connection established.\" URL=\"https://ecs-a-1.ap-south-1.amazonaws.com/ws?agentHash=fef29b5c&agentVersion=1.108.0&clusterArn=taskflow-dev-cluster&containerInstanceArn=arn%3Aaws%3Aecs%3Aap-south-1%3A440744236554%3Acontainer-instance%2Ftaskflow-dev-cluster%2F549610210fbf414cb09c3e37ebd6ad01&dockerVersion=DockerVersion%3A+25.0.16&protocolVersion=2&sendCredentials=false&seqNum=1\" ConnectTime=\"2026-10-29 16:41:02\" maxConnectionDuration=30m41.65159684s ExpectedDisconnectTime=\"2026-10-29 17:11:02\""
+    },
+    {
+        "Timestamp": 1793292068003,
+        "Message": "level=info time=2026-10-29T16:41:02Z msg=\"Connected to ACS endpoint\" containerInstanceARN=\"arn:aws:ecs:ap-south-1:440744236554:container-instance/taskflow-dev-cluster/549610210fbf414cb09c3e37ebd6ad01\" lastConnectedTime=2026-10-29 16:41:02.939062882 +0000 UTC m=+514181.765903923"
+    },
+    {
+        "Timestamp": 1793292081003,
+        "Message": "level=info time=2026-10-29T16:41:15Z msg=\"Successfully published instance status message to TCS with request ID: 2d650bcc-36bb-4764-9508-f8dcb465e0b2\""
+    }
+]

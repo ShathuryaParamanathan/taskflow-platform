@@ -1,0 +1,13 @@
+{
+    "Name": "taskflow-dev-ecs-asg",
+    "Min": 0,
+    "Max": 2,
+    "Desired": 1,
+    "Instances": [
+        {
+            "Id": "i-0a0d9be861db9a3cb",
+            "State": "InService",
+            "Health": "Healthy"
+        }
+    ]
+}

@@ -3,7 +3,7 @@
   ansible.builtin.lineinfile:
     path: /etc/ecs/ecs.config
     regexp: "^ECS_CLUSTER="
-    line: "ECS_CLUSTER=taskflow-cluster"
+    line: "ECS_CLUSTER=taskflow-dev-cluster"
     create: true
 - name: Ensure ECS agent service is enabled and running
   ansible.builtin.service:
